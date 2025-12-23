@@ -1,0 +1,29 @@
+// Modern Gradle 8+ style
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'main/java'          // optional, but nice to have
+version = '1.0-SNAPSHOT'
+
+repositories {
+    // jcenter() is deprecated, use this instead:
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:23.0'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+// Define the main class for the application
+application {
+    mainClass = 'main.java.FirstClass'
+}
+
+    // If your class is inside a package, e.g. `package org.example;`
+    // then it should be:
+    // mainClass = 'org.example.App'
+
