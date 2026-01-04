@@ -26,9 +26,16 @@ public class Main {
             }
             pets.add(isCat ? new Cat(name, age) : new Dog(name, age));
         }
-        for(Animal output: pets){
-            System.out.println(output);
-        }
+        pets.stream()
+                .map(pet -> {
+                    int newAge = pet.getAge() > 10 ? pet.getAge() + 1 : pet.getAge();
+                    if (pet instanceof Dog) {
+                        return new Dog(pet.getName(), newAge);
+                    } else {
+                        return new Cat(pet.getName(), newAge);
+                    }
+                })
+                .forEach(System.out::println);
     }
 
     private static int readInt(Scanner input){
